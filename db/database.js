@@ -5,9 +5,9 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: process.env.DB_PASS,
-  database: "employeeSQL",
+  database: "EmployeeSQL",
 });
 
-console.log("Connected to the employeeSQL database.");
+console.log("> Connected to the employeeSQL database.");
 
 module.exports = db;
