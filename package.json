@@ -4,6 +4,7 @@
   "description": "Manage Dapartments, Employees & Roles with this node backend application and MySQL database.",
   "main": "server.js",
   "dependencies": {
+    "chalk": "^4.1.0",
     "console-table": "^0.1.2",
     "dotenv": "^8.2.0",
     "inquirer": "^7.3.3",
@@ -14,8 +15,7 @@
   },
   "scripts": {
     "test": "jest --verbose",
-    "migrate": "mysql -u root -p < db/schema.sql",
-    "seed": "mysql -u root -p < db/seed.sql"
+    "migrate": "mysql -u root -p < db/migrate.sql"
   },
   "repository": {
     "type": "git",
