@@ -13,7 +13,9 @@
     "jest": "^26.6.0"
   },
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "migrate": "mysql -h localhost -u root EmployeeSQL -p Victory777 < db/schema.sql",
+    "seed": "mysql -h localhost -u root EmployeeSQL -p Victory777 < db/seed.sql"
   },
   "repository": {
     "type": "git",

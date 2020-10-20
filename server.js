@@ -1,5 +1,5 @@
 const connection = require("./db/database");
-const cTable = require("console.table");
+const cTable = require("console-table");
 const inquirer = require("inquirer");
 
 connection.connect(function (err) {
