@@ -1,7 +1,7 @@
 {
   "name": "EmployeeSQL",
   "version": "1.0.0",
-  "description": "Manage Dapartments, Employees & Roles with this node backend application and MySQL database.",
+  "description": "Manage Departments, Employees & Roles with this node backend application and MySQL database.",
   "main": "server.js",
   "dependencies": {
     "chalk": "^4.1.0",

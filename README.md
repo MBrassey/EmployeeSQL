@@ -1,6 +1,6 @@
 ## EmployeeSQL
 
-Manage Dapartments, Employees & Roles with this node backend application and MySQL database.
+Manage Departments, Employees & Roles with this node backend application and MySQL database.
 
 ![licensebadge](https://img.shields.io/badge/license-CC0_1.0_Universal-blue)
 
@@ -35,7 +35,7 @@ Manage Dapartments, Employees & Roles with this node backend application and MyS
 <h6><p align="right">:cyclone: Click the image(s) below to view the live <a id="Screenshots" href="https://employee-sql-mbrassey.herokuapp.com/">webapplication</a></p></h6>
 
 > Video Demonstration
-> [![Watch the video](./img/VideoPreview.png)](./img/Preview.mp4)
+> [![Watch the video](./img/VideoPreview.png)](https://youtu.be/UuhJfN5_wn0)
 
 > Setup & Options
 > [<img src="img/Preview1.gif">](https://employee-sql-mbrassey.herokuapp.com/)
