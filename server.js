@@ -1,49 +1,58 @@
 const connection = require("./db/database");
 const inquirer = require("inquirer");
-const banner = require("./lib/banner");
 const chalk = require("chalk");
 const arg = process.argv[2];
 const version = "1.0.0";
 
-connection.connect(function (err)
+// Display Argument Data
+if (arg === "-h")
 {
-	if (err)
-	{
-		console.log(err);
-	}
-  //console.log("connection id", connection.threadId);  // If needed
-  // Display Argument Data
-if (arg === "-h") {
-  console.log(`
-    Usage: node server.js [ -h | -v | -l | -a ]
-    [options]
-    -h          Display this message.
-    -v          Show version.
-    -l          Show license info.
-    -a          What is EmployeeSQL?
-`);
-process.exit();
-} else if (arg === "-v") {
-  console.log("EmployeeSQL Version: " + version);
-  process.exit();
-} else if (arg === "-l") {
-  console.log("Licensed under the Creative Commons CC0 Public Domain.");
-  process.exit();
-} else if (arg === "-a") {
-  console.log(
-    "Manage Dapartments, Employees & Roles with this node backend application and MySQL database."
-  );
-  process.exit();
-} else {
-  init();
+	console.log(`
+      Usage: node server.js [ -h | -v | -l | -a ]
+      [options]
+      -h          Display this message.
+      -v          Show version.
+      -l          Show license info.
+      -a          What is EmployeeSQL?
+  `);
+	process.exit();
 }
-});
+else if (arg === "-v")
+{
+	console.log("EmployeeSQL Version: " + version);
+	process.exit();
+}
+else if (arg === "-l")
+{
+	console.log("Licensed under the Creative Commons CC0 Public Domain.");
+	process.exit();
+}
+else if (arg === "-a")
+{
+	console.log(
+		"Manage Dapartments, Employees & Roles with this node backend application and MySQL database."
+	);
+	process.exit();
+}
+else
+{
+	connection.connect(function (err)
+	{
+		if (err)
+		{
+			console.log(err);
+		}
+		//console.log("connection id", connection.threadId);  // If needed
+		init();
+	});
+}
+
 
 clean = () =>
 {
-  console.clear();
-  console.log(
-    chalk.cyan(`
+	console.clear();
+	console.log(
+		chalk.cyan(`
       ███████ ███    ███ ██████  ██       ██████  ██    ██ ███████ ███████ 
       ██      ████  ████ ██   ██ ██      ██    ██  ██  ██  ██      ██      
       █████   ██ ████ ██ ██████  ██      ██    ██   ████   █████   █████   
@@ -57,12 +66,12 @@ clean = () =>
       ███████  ██████  ███████                                             
                   ▀▀       
   `)
-  );
-} 
+	);
+}
 
 init = () =>
 {
-  clean();
+	clean();
 	return inquirer
 		.prompt(
 		{
@@ -76,9 +85,9 @@ init = () =>
 				"Add Department",
 				"Add Role",
 				"Add Employee",
-        "Update Employee's Role",
-        "Delete Employee",
-        "Delete Role",
+				"Update Employee's Role",
+				"Delete Employee",
+				"Delete Role",
 				"Exit"
 			]
 		})
@@ -88,23 +97,23 @@ init = () =>
 			{
 			case "View Departments":
 				viewDepartments();
-        break;
+				break;
 
 			case "View Roles":
 				viewRoles();
 				break;
 
 			case "View Employees":
-        viewEmployees();
-        init();
+				viewEmployees();
+				init();
 				break;
 
 			case "Add Department":
-        addDepartment();
+				addDepartment();
 				break;
 
 			case "Add Role":
-        addRole();
+				addRole();
 				break;
 
 			case "Add Employee":
@@ -113,15 +122,15 @@ init = () =>
 
 			case "Update Employee's Role":
 				updateRole();
-        break;
+				break;
 
 			case "Delete Employee":
-        deleteEmployee();
-        break;
+				deleteEmployee();
+				break;
 
 			case "Delete Role":
-        deleteRole();
-        break;
+				deleteRole();
+				break;
 
 			case "Exit":
 				connection.end();
@@ -151,7 +160,7 @@ const viewEmployees = () =>
 		for (i = 0; i < res.length; i++)
 		{
 			console.log("");
-      console.table(res[i]);
+			console.table(res[i]);
 		}
 	});
 };
@@ -167,7 +176,7 @@ const viewRoles = () =>
 		if (err) throw err;
 		clean();
 		console.table(results);
-  })
+	})
 	init();
 };
 
@@ -179,8 +188,8 @@ const viewDepartments = () =>
 		if (err) throw err;
 		clean();
 		console.table(results);
-  })
-  init();
+	})
+	init();
 };
 
 // Add department
@@ -212,9 +221,9 @@ const addDepartment = () =>
 			connection.query(newDepartment, answer.addDepartment, function (err, results)
 			{
 				if (err) throw err;
-        console.log(`Department added successfully: ${(answer.addDepartment). toUpperCase()}`)
         init();
-      });
+        console.log(`Department added successfully: ${(answer.addDepartment). toUpperCase()}`)
+			});
 		})
 }
 
@@ -293,9 +302,9 @@ const addRole = () =>
 					console.log(params);
 					connection.query(newRole, params, (err, res) =>
 					{
-            if (err) throw err;
-            init();
-            console.log(`Role added successfully: ${(params[0]).toUpperCase()}`);
+						if (err) throw err;
+						init();
+						console.log(`Role added successfully: ${(params[0]).toUpperCase()}`);
 					});
 				});
 			});
@@ -387,20 +396,20 @@ const addEmployee = () =>
 					connection.query(roleIdQuery, params1, (err, res) =>
 					{
 						if (err) throw err;
-            var roleId = res[0].id;
+						var roleId = res[0].id;
 						var managerId;
 						if (manager === 'none')
 						{
-              if (err) throw err;
-              managerId = null;
-              const newEmployee = `INSERT into employee(first_name, last_name, role_id, manager_id) values(?,?,?,?);`;
-              const params4 = [firstName, lastName, roleId, managerId];
-              connection.query(newEmployee, params4, function (err, res)
-              {
-                if (err) throw err;
-                init();
-                console.log(`Employee added successfully: ${firstName} ${lastName} !`);
-              });
+							if (err) throw err;
+							managerId = null;
+							const newEmployee = `INSERT into employee(first_name, last_name, role_id, manager_id) values(?,?,?,?);`;
+							const params4 = [firstName, lastName, roleId, managerId];
+							connection.query(newEmployee, params4, function (err, res)
+							{
+								if (err) throw err;
+								init();
+								console.log(`Employee added successfully: ${firstName} ${lastName} !`);
+							});
 						}
 						else
 						{
@@ -416,8 +425,8 @@ const addEmployee = () =>
 								connection.query(newEmployee2, params4, function (err, res)
 								{
 									if (err) throw err;
-                  init();
-                  console.log(`Employee added successfully: ${firstName} ${lastName} !`);
+									init();
+									console.log(`Employee added successfully: ${firstName} ${lastName} !`);
 								});
 							});
 						}
@@ -486,8 +495,8 @@ const updateRole = () =>
 
 						connection.query(newRoleId, params8, (err, res) =>
 						{
-              if (err) throw err;
-              init();
+							if (err) throw err;
+							init();
 							console.log(`Employee role updated successfully: ${newRole}`);
 						})
 					})
@@ -499,7 +508,7 @@ const updateRole = () =>
 // Delete Employee
 const deleteEmployee = () =>
 {
-  // Get list of employees for inquirer
+	// Get list of employees for inquirer
 	const deleteQuery = `SELECT first_name, last_name FROM employee`;
 	connection.query(deleteQuery, (err, res) =>
 	{
@@ -528,7 +537,7 @@ const deleteEmployee = () =>
 			{
 				var selectEmp = employee.split(" ");
 				const empId = `SELECT id from employee where (first_name = ? and last_name = ?)`;
-        const params10 = [selectEmp[0], selectEmp[1]];
+				const params10 = [selectEmp[0], selectEmp[1]];
 
 				connection.query(empId, params10, (err, res) =>
 				{
@@ -537,8 +546,8 @@ const deleteEmployee = () =>
 					const params11 = [res[0].id];
 					connection.query(delEmp, params11, (err, res) =>
 					{
-            init();
-            console.log(`Employee deleted successfully: ${employee} !`);
+						init();
+						console.log(`Employee deleted successfully: ${employee} !`);
 					});
 				});
 			});
@@ -548,7 +557,7 @@ const deleteEmployee = () =>
 // Delete Role
 const deleteRole = () =>
 {
-  // Get list of roles for inquirer
+	// Get list of roles for inquirer
 	const deleteQuery2 = `SELECT title FROM role`;
 	connection.query(deleteQuery2, (err, res) =>
 	{
@@ -574,13 +583,13 @@ const deleteRole = () =>
 				const roleId = `SELECT id from role where title = ?`;
 				connection.query(roleId, role, (err, res) =>
 				{
-          if (err) throw err;
+					if (err) throw err;
 					const delRole = `DELETE FROM role WHERE id = ?;`;
 					const params11 = [res[0].id];
 					connection.query(delRole, params11, (err, res) =>
 					{
-            init();
-            console.log(`Role deleted successfully: ${role} !`);
+						init();
+						console.log(`Role deleted successfully: ${role} !`);
 					});
 				});
 			});
