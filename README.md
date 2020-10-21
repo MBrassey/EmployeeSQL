@@ -13,7 +13,7 @@ Manage Departments, Employees & Roles with this node backend application and MyS
 
 #### Requirements
 
-    mysql
+    mysql-server
     node
     npm
 
