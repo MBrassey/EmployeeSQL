@@ -34,13 +34,17 @@ Manage Dapartments, Employees & Roles with this node backend application and MyS
 
 <h6><p align="right">:cyclone: Click the image(s) below to view the live <a id="Screenshots" href="https://employee-sql-mbrassey.herokuapp.com/">webapplication</a></p></h6>
 
-[<img src="img/Preview1.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> Setup & Options
+> [<img src="img/Preview1.gif">](https://employee-sql-mbrassey.herokuapp.com/)
 
-[<img src="img/Preview2.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> View Departments, Roles & Employees
+> [<img src="img/Preview2.gif">](https://employee-sql-mbrassey.herokuapp.com/)
 
-[<img src="img/Preview3.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> Add Department, Role & Employee
+> [<img src="img/Preview3.gif">](https://employee-sql-mbrassey.herokuapp.com/)
 
-[<img src="img/Preview4.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> Update Role, Delete Role & Employee
+> [<img src="img/Preview4.gif">](https://employee-sql-mbrassey.herokuapp.com/)
 
 #### Questions
 
