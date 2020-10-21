@@ -26,6 +26,7 @@ Manage Departments, Employees & Roles with this node backend application and MyS
 #### Usage
 
     Usage: node server.js [ -h | -v | -l | -a ]
+    or: npm start
 
     [options]
 

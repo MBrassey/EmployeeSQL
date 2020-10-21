@@ -8,6 +8,8 @@ const version = "1.0.0";
 if (arg === "-h") {
   console.log(`
       Usage: node server.js [ -h | -v | -l | -a ]
+      or: npm start
+      
       [options]
       -h          Display this message.
       -v          Show version.
