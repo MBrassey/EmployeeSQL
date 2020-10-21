@@ -28,8 +28,9 @@ init = () =>
 				"Add Department",
 				"Add Role",
 				"Add Employee",
-				"Update Employee's Role",
-				"Delete Employee",
+        "Update Employee's Role",
+        "Delete Employee",
+        "Delete Role",
 				"Exit"
 			]
 		})
@@ -63,18 +64,21 @@ init = () =>
 
 			case "Update Employee's Role":
 				updateRole();
-				break;
+        break;
 
 			case "Delete Employee":
         deleteEmployee();
-				break;
+        break;
+
+			case "Delete Role":
+        deleteRole();
+        break;
 
 			case "Exit":
 				connection.end();
 			}
 		});
 }
-
 
 // View employees
 const viewEmployees = () =>
@@ -487,6 +491,48 @@ const deleteEmployee = () =>
 					connection.query(delEmp, params11, (err, res) =>
 					{
 						console.log(`Employee deleted successfully: ${employee} !`);
+						init();
+					});
+				});
+			});
+	});
+}
+
+// Delete Role
+const deleteRole = () =>
+{
+  // Get list of roles for inquirer
+	const deleteQuery2 = `SELECT title FROM role`;
+	connection.query(deleteQuery2, (err, res) =>
+	{
+		var role2 = [];
+		if (err) throw err;
+		for (k = 0; k < res.length; k++)
+		{
+			role2.push(res[k].title);
+		}
+		inquirer
+			.prompt([
+			{
+				name: "role",
+				type: "list",
+				message: "Select role to delete:",
+				choices: role2
+			}])
+			.then((
+			{
+				role
+			}) =>
+			{
+				const roleId = `SELECT id from role where title = ?`;
+				connection.query(roleId, role, (err, res) =>
+				{
+          if (err) throw err;
+					const delRole = `DELETE FROM role WHERE id = ?;`;
+					const params11 = [res[0].id];
+					connection.query(delRole, params11, (err, res) =>
+					{
+						console.log(`Role deleted successfully: ${role} !`);
 						init();
 					});
 				});
