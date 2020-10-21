@@ -13,11 +13,13 @@ Manage Departments, Employees & Roles with this node backend application and MyS
 
 #### Requirements
 
+    mysql
     node
     npm
 
 #### Installation
 
+    update DB_PASS in .env
     npm i
     npm run migrate
 
