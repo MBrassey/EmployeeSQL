@@ -35,7 +35,7 @@ Manage Departments, Employees & Roles with this node backend application and MyS
 <h6><p align="right">:cyclone: Click the image(s) below to view the live <a id="Screenshots" href="https://github.com/MBrassey/EmployeeSQL">webapplication</a></p></h6>
 
 > Video Demonstration
-> [![Watch the video](./img/VideoPreview.png)](https://youtu.be/oNxL9l5Nwpo)
+> [![Watch the video](./img/VideoPreview.png)](https://youtu.be/9Vf4IARSOu4)
 
 > Setup & Options
 > [<img src="img/Preview1.gif">](https://github.com/MBrassey/EmployeeSQL)
