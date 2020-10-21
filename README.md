@@ -35,7 +35,8 @@ Manage Dapartments, Employees & Roles with this node backend application and MyS
 <h6><p align="right">:cyclone: Click the image(s) below to view the live <a id="Screenshots" href="https://employee-sql-mbrassey.herokuapp.com/">webapplication</a></p></h6>
 
 > Video Demonstration
-> <video width="1194" height="418" controls>
+
+<video controls>
 
   <source src="./img/Preview.mp4" type="video/mp4">
 </video>
