@@ -444,3 +444,52 @@ const updateRole = () =>
 		})
 	})
 }
+
+// Delete Employee
+const deleteEmployee = () =>
+{
+  // Get list of employees for inquirer
+	const deleteQuery = `SELECT first_name, last_name FROM employee`;
+	connection.query(deleteQuery, (err, res) =>
+	{
+		var name = [];
+		if (err) throw err;
+
+		for (k = 0; k < res.length; k++)
+		{
+			var firstname = res[k].first_name;
+			var lastname = res[k].last_name;
+			console.table(firstname + lastname)
+			name.push(firstname + " " + lastname)
+		}
+		inquirer
+			.prompt([
+			{
+				name: "employee",
+				type: "list",
+				message: "Select employee to delete:",
+				choices: name
+			}])
+			.then((
+			{
+				employee
+			}) =>
+			{
+				var selectEmp = employee.split(" ");
+				const empId = `SELECT id from employee where (first_name = ? and last_name = ?)`;
+        const params10 = [selectEmp[0], selectEmp[1]];
+
+				connection.query(empId, params10, (err, res) =>
+				{
+					if (err) throw err;
+					const delEmp = `DELETE FROM employee WHERE id = ?;`;
+					const params11 = [res[0].id];
+					connection.query(delEmp, params11, (err, res) =>
+					{
+						console.log(`Employee deleted successfully: ${employee} !`);
+						init();
+					});
+				});
+			});
+	});
+}
