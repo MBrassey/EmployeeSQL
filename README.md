@@ -36,8 +36,7 @@ Manage Dapartments, Employees & Roles with this node backend application and MyS
 
 > Video Demonstration
 
-<video controls>
-
+<video width="1194" height="418" controls>
   <source src="./img/Preview.mp4" type="video/mp4">
 </video>
 
