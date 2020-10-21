@@ -32,22 +32,22 @@ Manage Departments, Employees & Roles with this node backend application and MyS
            -l          Show license info.
            -a          What is EmployeeSQL?
 
-<h6><p align="right">:cyclone: Click the image(s) below to view the live <a id="Screenshots" href="https://employee-sql-mbrassey.herokuapp.com/">webapplication</a></p></h6>
+<h6><p align="right">:cyclone: Click the image(s) below to view the live <a id="Screenshots" href="https://github.com/MBrassey/EmployeeSQL">webapplication</a></p></h6>
 
 > Video Demonstration
 > [![Watch the video](./img/VideoPreview.png)](https://youtu.be/UuhJfN5_wn0)
 
 > Setup & Options
-> [<img src="img/Preview1.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> [<img src="img/Preview1.gif">](https://github.com/MBrassey/EmployeeSQL)
 
 > View Departments, Roles & Employees
-> [<img src="img/Preview2.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> [<img src="img/Preview2.gif">](https://github.com/MBrassey/EmployeeSQL)
 
 > Add Department, Role & Employee
-> [<img src="img/Preview3.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> [<img src="img/Preview3.gif">](https://github.com/MBrassey/EmployeeSQL)
 
 > Update Role, Delete Role & Employee
-> [<img src="img/Preview4.gif">](https://employee-sql-mbrassey.herokuapp.com/)
+> [<img src="img/Preview4.gif">](https://github.com/MBrassey/EmployeeSQL)
 
 #### Questions
 
